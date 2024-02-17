@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+#game-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    width: 90vw;
+    height: 90vh;
+    margin: 0 auto;
+}
+
+#score,
+#speed,
+#position,
+#time {
+    position: absolute;
+    color: #fff;
+    font-size: 4em;
+}
+
+#score {
+    top: 5%;
+    left: 1%;
+}
+
+#speed {
+    top: 11%;
+    left: 1%;
+}
+
+#time {
+    top: 5%;
+    right: 1%;
+}
+
+#position {
+    top: 11%;
+    right: 10px;
+}
+
+#logo {
+    position: absolute;
+    top: -3%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40vh;
+    height: auto;
+}
+
+#car {
+    position: absolute;
+    width: 20%;
+    height: auto;
+    top: 2%;
+}
+
+#road {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70vh;
+    background-color: #d2d4dc65;
+    display: flex;
+    flex-direction: column;
+}
+
+.lane {
+    flex: 1;
+    border-top: 20px dashed #fff;
+    border-bottom: 20px solid #fff;
+}
+
+.lane:nth-child(1) {
+    border-top: 20px solid #fff;
+    border-bottom: none;
+}
+
+.lane:nth-child(2) {
+    border-bottom: none;
+}
+
