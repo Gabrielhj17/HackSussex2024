@@ -61,21 +61,6 @@ body {
     top: 2%;
 }
 
-#roadClosed {
-    position: absolute;
-    width: 15vh; 
-    height: auto; 
-    top: 8%;
-}
-
-#potHole {
-    position: absolute;
-    width: 12vh; 
-    height: auto; 
-    top: 78%;
-}
-
-
 #road {
     position: absolute;
     bottom: 0;
@@ -88,9 +73,21 @@ body {
 
 .lane {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Add position relative to allow absolute positioning of child elements */
+    overflow: hidden; /* Hide any overflowing content */
     border-top: 20px dashed #fff;
     border-bottom: 20px solid #fff;
 }
+
+.obstacle {
+    position: absolute; /* Position obstacles relative to the lane */
+    top: 50%; /* Position obstacles at the center vertically */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+}
+
 
 .lane:nth-child(1) {
     border-top: 20px solid #fff;

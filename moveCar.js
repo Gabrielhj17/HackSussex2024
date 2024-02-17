@@ -1,5 +1,3 @@
-https://docs.google.com/document/d/1Qtw3RQ3rqkhA3P9VV5-Ep6atfTo76k6Et3XZmX8nKiQ/edit?usp=sharing
-
 document.addEventListener("DOMContentLoaded", function() {
     // Get references to the car and lanes
     const car = document.getElementById("car");
@@ -44,3 +42,23 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// Function to move the car
+function moveCar(direction) {
+    const car = document.getElementById("car");
+    const currentPosition = parseInt(car.style.top);
+
+    if (direction === "up" && currentPosition > 2) {
+        car.style.top = (currentPosition - 33) + "%";
+    } else if (direction === "down" && currentPosition < 68) {
+        car.style.top = (currentPosition + 33) + "%";
+    }
+
+    // Check for collisions with obstacles
+    const obstacles = document.querySelectorAll(".obstacle");
+    obstacles.forEach(obstacle => {
+        if (isColliding(car, obstacle)) {
+            endGame();
+        }
+    });
+}
