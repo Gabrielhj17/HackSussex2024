@@ -23,25 +23,57 @@ document.addEventListener("DOMContentLoaded", function() {
         const carTop = parseInt(car.style.top);
 
         // Check if the pressed key is the up arrow key
-        if (event.key === "ArrowUp") {
-            // Move the car up unless it's already at the top lane
-            if (carTop == 35) {
-                moveToTopLane();
-            }
-            else if (carTop == 68) {
-                moveToMiddleLane();
-            }
+        if (event.key === "ArrowUp" && carTop == 35) {
+            moveToTopLane();
+        }
+
+        if (event.key === "ArrowUp" && carTop == 68) {
+            moveToMiddleLane();
+        }
+
+        if (event.key === "ArrowDown" && carTop == 2) {
+            moveToMiddleLane();
         }
         
-        // Check if the pressed key is the down arrow key
         else if (event.key === "ArrowDown") {
-            // Move the car down unless it's already at the bottom lane
-            if (carTop == 2) {
-                moveToBottomLane();
-            }
-            else if (carTop == 35) {
+            if (carTop !== 68) {
                 moveToBottomLane();
             }
         }
     });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const roadClosed = document.getElementById("roadClosed");
+    const potHole = document.getElementById("potHole");
+
+    const lanes = document.querySelectorAll(".lane");
+
+    // Function to animate obstacles
+    function animateObstacle(obstacle) {
+        let position = 100; // Start position at right edge of the screen
+        const speed = 0.2; // Adjust speed as needed
+        const laneIndex = Math.floor(Math.random() * lanes.length); // Randomly select a lane
+
+        // Set initial position of obstacle
+        obstacle.style.left = position + "%";
+        lanes[laneIndex].appendChild(obstacle);
+
+        // Animation loop
+        const animation = setInterval(frame, 10);
+
+        function frame() {
+            if (position <= -20) { // Check if obstacle is off the screen
+                clearInterval(animation);
+                lanes[laneIndex].removeChild(obstacle); // Remove obstacle from lane
+            } else {
+                position -= speed; // Move obstacle towards left
+                obstacle.style.left = position + "%";
+            }
+        }
+    }
+
+    // Call the animation functions as needed
+    animateObstacle(roadClosed);
+    animateObstacle(potHole);
 });

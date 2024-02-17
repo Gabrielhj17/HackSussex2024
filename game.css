@@ -61,6 +61,21 @@ body {
     top: 2%;
 }
 
+#roadClosed {
+    position: absolute;
+    width: 15vh; 
+    height: auto; 
+    top: 8%;
+}
+
+#potHole {
+    position: absolute;
+    width: 12vh; 
+    height: auto; 
+    top: 78%;
+}
+
+
 #road {
     position: absolute;
     bottom: 0;
