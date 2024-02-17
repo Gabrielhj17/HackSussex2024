@@ -8,12 +8,17 @@ h1 {
 #game-frame {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end; /* Move the button to the bottom */
     border: 2px solid white;
     width: 80%;
     height: 80vh;
     margin: 0 auto;
 }
 body {
-    background-color: black; /* Added background color */
+    background-color: black; 
+}
+
+button {
+    width: 200px; /* Increase the button size */
+    font-size: 2rem; /* Increase the button text size */
 }
