@@ -1,4 +1,3 @@
-// Function to check collision between two elements
 function isColliding(element1, element2) {
     const rect1 = element1.getBoundingClientRect();
     const rect2 = element2.getBoundingClientRect();
@@ -17,15 +16,16 @@ function isColliding(element1, element2) {
     return collision;
 }
 
+
 // Function to end the game
 function endGame() {
     clearInterval(gameInterval); // Stop generating obstacles
     alert("Game Over!"); // Show game over message
-    // You can add further logic here, like resetting the game or showing a game over screen
 }
 
 // Test the collision function
 const car = document.getElementById("car");
 const obstacle = document.getElementById("roadClosed"); // Change this to the actual obstacle element
+const obstacle2 = document.getElementById("potHole"); // Change this to the actual obstacle element
 
-console.log("Collision test:", isColliding(car, obstacle));
+console.log("Collision test:", isColliding(car, obstacle2));

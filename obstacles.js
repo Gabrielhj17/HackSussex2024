@@ -29,6 +29,11 @@ function animateObstacle(obstacleType) {
                 position -= speed;
                 obstacle.style.left = position + "%";
 
+                // Check for collision with the car
+                if (isColliding(car, obstacle)) {
+                    endGame(); // Call endGame function if collision detected
+                }
+
                 if (position <= -20) {
                     clearInterval(animation);
                     lane.removeChild(obstacle);
@@ -41,6 +46,7 @@ function animateObstacle(obstacleType) {
         }
     }
 }
+
 
 // Define obstacle types
 const roadClosed = {
@@ -57,3 +63,4 @@ setInterval(function() {
     animateObstacle(roadClosed);
     animateObstacle(potHole);
 }, 3000); // Generate obstacles every 3 seconds
+
