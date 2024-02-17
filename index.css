@@ -2,14 +2,18 @@ h1 {
     text-align: center;
     font-size: 4rem; 
     max-width: 80%; 
-    margin: 0 auto; 
+    margin: 0 auto;
+    color: white; 
 }
 #game-frame {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid white;
     width: 80%;
     height: 80vh;
     margin: 0 auto;
+}
+body {
+    background-color: black; /* Added background color */
 }
