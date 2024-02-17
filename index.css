@@ -6,12 +6,13 @@ h1 {
     color: white; 
 }
 #game-frame {
+    position: relative; /* Ensure the frame is positioned relative */
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Move the button to the bottom */
+    align-items: center;
     border: 2px solid white;
-    width: 80%;
-    height: 80vh;
+    width: 90vw;
+    height: 90vh;
     margin: 0 auto;
 }
 body {
@@ -21,4 +22,6 @@ body {
 button {
     width: 200px; /* Increase the button size */
     font-size: 2rem; /* Increase the button text size */
+    position: absolute;
+    bottom: 10%;
 }
