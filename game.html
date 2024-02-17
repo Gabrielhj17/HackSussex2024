@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game</title>
+    <style>
+        /* CSS styles for the game screen */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        #game-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+        }
+        
+        #score {
+            position: absolute;
+            top: 1%;
+            left: 1%;
+            color: #fff;
+            font-size: 2em;
+        }
+        
+        #speed {
+            position: absolute;
+            top: 4%; /* Adjust the top position */
+            left: 1%;
+            color: #fff;
+            font-size: 2em;
+        }
+        
+        #position {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 20px;
+        }
+        
+        #road {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80vh;
+            background-color: #888;
+            display: flex; /* Use flexbox */
+            flex-direction: column; /* Arrange lanes vertically */
+        }
+        
+        .lane {
+            flex: 1; /* Make each lane take equal space */
+            border-top: 2px solid #fff; /* Add a border to the top side of each lane */
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="score">Score: 0</div>
+        <div id="speed">Speed: 0</div>
+        <div id="position">Position: 0 / 0</div>
+        <div id="road">
+            <div class="lane"></div>
+            <div class="lane"></div>
+            <div class="lane"></div>
+        </div>
+    </div>
+</body>
+</html>
