@@ -1,14 +1,18 @@
+@import url('https://fonts.cdnfonts.com/css/8bit-wonder');
+
 h1 {
     text-align: center;
     font-size: 4rem; 
     max-width: 80%; 
     margin: 0 auto;
     color: white; 
-    top: 10%;
+    top: 30%;
     position: absolute;
+    font-family: '8BIT WONDER', sans-serif;
 }
 h2 {
     color: white;
+    font-family: '8BIT WONDER', sans-serif;
 }
 #game-frame {
     position: relative; /* Ensure the frame is positioned relative */
@@ -21,12 +25,36 @@ h2 {
     margin: 0 auto;
 }
 body {
-    background-color: black; /* Change the background color to black
+    background-color: black; /* Change the background color to black */
 
 }
+
 button {
     width: 200px; /* Increase the button size */
+    height: 75px;
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 0 10px 5px grey; /* Add a white glow */
     font-size: 2rem; /* Increase the button text size */
     position: absolute;
     bottom: 10%;
+    font-family: '8BIT WONDER', sans-serif;
+    transition: 0.3s; /* Add a smooth transition effect */
+}
+
+button:hover {
+    background-color: grey; /* Change the background color to white */
+    color: black; /* Change the text color to black */
+}
+
+#landing-page {
+    background-color: red;
+}
+
+#logo {
+    position: absolute;
+    top: -3%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60vh;
+    height: auto;
 }
