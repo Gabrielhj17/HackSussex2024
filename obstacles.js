@@ -1,5 +1,12 @@
-// JavaScript for moving obstacles
-var obstacleSpeed = 10;
+// Function to play audio
+function playSound(src) {
+    var audio = new Audio(src);
+    audio.play();
+}
+playSound('startingBeep.mp3');
+playSound('gameMusic.mp3');
+
+var obstacleSpeed = 5;
 var interval = 5000; // Adjust the interval for obstacle generation
 // Function to create and move obstacles
 function moveObstacles() {
@@ -76,9 +83,8 @@ function incrementScore(scoreToAdd) {
 function incrementSpeed() {
     var speedElement = document.getElementById('speed');
     var currentSpeed = parseInt(speedElement.innerText.split(':')[1].trim());
-    var newSpeed = currentSpeed + 5;
-    speedElement.innerText = 'Speed: ' + newSpeed;
-    obstacleSpeed = newSpeed; // Update the obstacle speed variable
+    obstacleSpeed *= 1.5; // Increment the speed by 2
+    speedElement.innerText = 'Speed: ' + obstacleSpeed;
     interval -= 500;
     startObstacleGeneration(); // Restart obstacle generation with the new speed
 }

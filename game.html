@@ -8,26 +8,16 @@
     <script src="collisionLogic.js"></script>
     <script src="time.js"></script>
     <script>
-        // Function to play the starting beep
-        function playStartingBeep() {
-            var audio = new Audio('startingBeep.mp3');
+        // Function to play audio
+        function playSound(src) {
+            var audio = new Audio(src);
             audio.play();
-            // After the starting beep finishes, play game music
-            audio.onended = function() {
-                playGameMusic();
-            };
         }
 
-        // Function to play game music
-        function playGameMusic() {
-            var gameMusic = new Audio('gameMusic.mp3');
-            gameMusic.loop = true; // Loop the game music
-            gameMusic.play();
-        }
-
-        // Call the function to play starting beep when the page loads
+        // Call the function to play starting beep and game music when the page loads
         window.onload = function() {
-            playStartingBeep();
+            playSound('startingBeep.mp3');
+            playSound('gameMusic.mp3');
         };
     </script>
 </head>
