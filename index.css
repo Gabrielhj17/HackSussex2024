@@ -30,6 +30,7 @@ h2 {
 }
 body {
     background-color: black; /* Change the background color to black */
+    margin: 0; /* Remove the margin */
 
 }
 

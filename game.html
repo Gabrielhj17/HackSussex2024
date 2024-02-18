@@ -7,29 +7,6 @@
     <script src="obstacles.js"></script>
     <script src="collisionLogic.js"></script>
     <script src="time.js"></script>
-    <script>
-        // Function to play the starting beep
-        function playStartingBeep() {
-            var audio = new Audio('startingBeep.mp3');
-            audio.play();
-            // After the starting beep finishes, play game music
-            audio.onended = function() {
-                playGameMusic();
-            };
-        }
-
-        // Function to play game music
-        function playGameMusic() {
-            var gameMusic = new Audio('gameMusic.mp3');
-            gameMusic.loop = true; // Loop the game music
-            gameMusic.play();
-        }
-
-        // Call the function to play starting beep when the page loads
-        window.onload = function() {
-            playStartingBeep();
-        };
-    </script>
 </head>
 <body>
     <div id="game-container">
@@ -46,5 +23,16 @@
             <img src="Assets/redCar.png" alt="Red Car" id="car">
         </div>
     </div>
+
+    <audio id="gameMusic" src="Sounds/mainTrack.mp3" type="audio/mp3" loop></audio>
+
+    <script>
+        function playGameMusic() { 
+          var x = new Audio('Sounds/mainTrack.mp3');
+            x.play();
+        } 
+        
+        window.onload = playGameMusic();
+    </script>
 </body>
 </html>
