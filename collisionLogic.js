@@ -42,7 +42,7 @@ function detectCollision() {
 // Function to end the game
 function endGame() {
     alert('Game Over! You hit an obstacle.');
-    window.location.href = 'endScreen.html';
+    window.location.href = 'index.html';
 }
 
 // Function to continuously check for collision at regular intervals
