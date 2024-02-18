@@ -7,6 +7,7 @@
     <script src="obstacles.js"></script>
     <script src="collisionLogic.js"></script>
     <script src="time.js"></script>
+<<<<<<< HEAD
     <script>
         // Function to play audio
         function playSound(src) {
@@ -20,6 +21,8 @@
             playSound('gameMusic.mp3');
         };
     </script>
+=======
+>>>>>>> 7c2387d9600b48a61066a3abc7ed001810444e36
 </head>
 <body>
     <div id="game-container">
@@ -36,5 +39,16 @@
             <img src="Assets/redCar.png" alt="Red Car" id="car">
         </div>
     </div>
+
+    <audio id="gameMusic" src="Sounds/mainTrack.mp3" type="audio/mp3" loop></audio>
+
+    <script>
+        function playGameMusic() { 
+          var x = new Audio('Sounds/mainTrack.mp3');
+            x.play();
+        } 
+        
+        window.onload = playGameMusic();
+    </script>
 </body>
 </html>
