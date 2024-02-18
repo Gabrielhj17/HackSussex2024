@@ -1,15 +1,15 @@
 // JavaScript for ending the game when the car touches an obstacle
-
-// Function to check if two elements' bounding boxes are intersecting
-function isIntersecting(element1, element2) {
+// Function to check if two elements are colliding
+function isColliding(element1, element2) {
     var rect1 = element1.getBoundingClientRect();
     var rect2 = element2.getBoundingClientRect();
     
-    // Check for intersection of bounding boxes
-    return !(rect1.right < rect2.left || 
-             rect1.left > rect2.right || 
-             rect1.bottom < rect2.top || 
-             rect1.top > rect2.bottom);
+    // Check if any of the car's edges are overlapping with the obstacle's edges
+    return rect1.x < rect2.x + rect2.width && 
+            rect1.x + rect1.width > rect2.x &&
+            rect1.y < rect2.y + rect2.height && 
+            rect1.y + rect1.height > rect2.y;
+
 }
 
 // Function to detect collision between the car and obstacles
@@ -20,18 +20,27 @@ function detectCollision() {
     // Loop through each obstacle to check for collision
     for (var i = 0; i < obstacles.length; i++) {
         var obstacle = obstacles[i];
-        if (isIntersecting(car, obstacle)) {
-            // Collision detected, end the game
-            endGame();
-            return;
+        var carLane = car.lane; // Get the lane of the car
+        var obstacleLane = obstacle.lane; // Get the lane of the obstacle
+        
+        // Check if the car and obstacle are in the same lane
+        if (carLane === obstacleLane) {
+            if (parseInt(obstacle.style.right) < parseInt(car.style.left)) {
+                // If the obstacle has passed the car, skip collision detection for it
+                continue;
+            }
+            else if (isColliding(car, obstacle)) {
+                // Collision detected, end the game
+                endGame();
+                return;
+            }
         }
     }
 }
 
 // Function to end the game
 function endGame() {
-    // Display a message or perform any other action to indicate the end of the game
-    alert('Game Over! You collided with an obstacle.');
+    alert('Game Over! You hit an obstacle');
     window.location.href = 'index.html';
 }
 
