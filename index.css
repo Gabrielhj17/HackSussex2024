@@ -4,6 +4,8 @@ h1 {
     max-width: 80%; 
     margin: 0 auto;
     color: white; 
+    top: 10%;
+    position: absolute;
 }
 h2 {
     color: white;
