@@ -1,0 +1,33 @@
+#game-frame {
+    position: relative; /* Ensure the frame is positioned relative */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    width: 90vw;
+    height: 90vh;
+    margin: 0 auto;
+}
+.container {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+p {
+    color: #666;
+}
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.button:hover {
+    background-color: #0056b3;
+}

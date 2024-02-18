@@ -38,10 +38,11 @@ function detectCollision() {
     }
 }
 
+
 // Function to end the game
 function endGame() {
-    alert('Game Over! You hit an obstacle');
-    window.location.href = 'index.html';
+    alert('Game Over! You hit an obstacle.');
+    window.location.href = 'endScreen.html';
 }
 
 // Function to continuously check for collision at regular intervals
@@ -51,3 +52,18 @@ function startCollisionDetection() {
 
 // Call the function to start collision detection
 startCollisionDetection();
+
+// Function to restart the game
+function restartGame() {
+    // Hide the end game screen
+    var endGameScreen = document.getElementById('end-game-screen');
+    endGameScreen.style.display = 'none';
+
+    // Reset score and speed
+    document.getElementById('score').textContent = 'Score: 0';
+    document.getElementById('speed').textContent = 'Speed: 10';
+
+    // Restart obstacle generation
+    interval = 5000;
+    startObstacleGeneration();
+}

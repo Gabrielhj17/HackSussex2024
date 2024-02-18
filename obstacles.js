@@ -76,10 +76,10 @@ function incrementScore(scoreToAdd) {
 function incrementSpeed() {
     var speedElement = document.getElementById('speed');
     var currentSpeed = parseInt(speedElement.innerText.split(':')[1].trim());
-    var newSpeed = currentSpeed + 10;
+    var newSpeed = currentSpeed + 5;
     speedElement.innerText = 'Speed: ' + newSpeed;
     obstacleSpeed = newSpeed; // Update the obstacle speed variable
-    interval -= 1000;
+    interval -= 500;
     startObstacleGeneration(); // Restart obstacle generation with the new speed
 }
 
