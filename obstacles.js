@@ -1,66 +1,55 @@
-// Create an array to keep track of obstacle presence in each lane
-const laneOccupied = [false, false, false];
+// JavaScript for moving obstacles
 
-function animateObstacle(obstacleType) {
-    const lanes = document.querySelectorAll(".lane");
+// Function to create and move obstacles
+function moveObstacles() {
+    // Create a random lane index for the obstacle
+    var laneIndex = Math.floor(Math.random() * 3); // Assuming there are 3 lanes
 
-    // Iterate over the lanes
-    for (let laneIndex = 0; laneIndex < lanes.length; laneIndex++) {
-        // Check if the current lane is occupied by an obstacle
-        if (!laneOccupied[laneIndex]) {
-            const lane = lanes[laneIndex];
-            const obstacle = document.createElement("img");
-
-            obstacle.src = obstacleType.src;
-            obstacle.alt = obstacleType.alt;
-            obstacle.classList.add("obstacle");
-            obstacle.style.position = "absolute";
-
-            let position = Math.random() * 100 + 100;
-            obstacle.style.left = position + "%";
-            lane.appendChild(obstacle);
-
-            laneOccupied[laneIndex] = true;
-
-            const speed = 0.3;
-            const animation = setInterval(frame, 10);
-
-            function frame() {
-                position -= speed;
-                obstacle.style.left = position + "%";
-
-                // Check for collision with the car
-                if (isColliding(car, obstacle)) {
-                    endGame(); // Call endGame function if collision detected
-                }
-
-                if (position <= -20) {
-                    clearInterval(animation);
-                    lane.removeChild(obstacle);
-                    laneOccupied[laneIndex] = false;
-                }
-            }
-
-            // Break after placing an obstacle in one lane
+    // Create a new obstacle element
+    var obstacle = document.createElement('img');
+    // Randomly choose between potHole.png and roadClosed.png
+    var obstacleType = Math.random() < 0.5 ? 'potHole.png' : 'roadClosed.png';
+    obstacle.src = 'Assets/' + obstacleType; // Set the obstacle image source
+    obstacle.classList.add('obstacle'); // Add the 'obstacle' class for styling
+    obstacle.style.right = '-100px'; // Initial position outside the screen
+    
+    // Set obstacle's lane position based on laneIndex
+    switch (laneIndex) {
+        case 0:
+            obstacle.style.top = '20%'; // Top lane
             break;
-        }
+        case 1:
+            obstacle.style.top = '50%'; // Middle lane
+            break;
+        case 2:
+            obstacle.style.top = '80%'; // Bottom lane
+            break;
+        default:
+            obstacle.style.top = '20%'; // Default to top lane
+            break;
     }
+    
+    obstacle.style.zIndex = '999'; // Ensure obstacle is on top of other elements
+    document.getElementById('road').appendChild(obstacle); // Append obstacle to the road
+
+    // Move the obstacle from right to left
+    var obstacleMoveInterval = setInterval(function() {
+        var currentPosition = parseInt(obstacle.style.right);
+        if (currentPosition > window.innerWidth) {
+            // Remove the obstacle when it's out of the screen
+            clearInterval(obstacleMoveInterval);
+            obstacle.remove();
+        } else {
+            // Move the obstacle towards the left
+            obstacle.style.right = (currentPosition + 10) + 'px'; // Adjust the speed here
+        }
+    }, 50); // Adjust the interval for smoother animation
 }
 
+// Function to start generating obstacles at regular intervals
+function startObstacleGeneration() {
+    setInterval(moveObstacles, 5000); // Adjust the interval for obstacle generation
+}
 
-// Define obstacle types
-const roadClosed = {
-    src: "Assets/roadClosed.png",
-    alt: "Road Closed"
-};
-const potHole = {
-    src: "Assets/potHole.png",
-    alt: "Pothole"
-};
-
-// Call the animation functions as needed
-setInterval(function() {
-    animateObstacle(roadClosed);
-    animateObstacle(potHole);
-}, 3000); // Generate obstacles every 3 seconds
-
+// Call the function to start generating obstacles
+startObstacleGeneration();
