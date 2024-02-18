@@ -83,5 +83,11 @@ function incrementSpeed() {
     startObstacleGeneration(); // Restart obstacle generation with the new speed
 }
 
+// Function to play the starting beep
+function playStartingBeep() {
+    var audio = document.getElementById("startingBeep.mp3");
+    audio.play();
+}
+
 // Call the function to start generating obstacles
 startObstacleGeneration();
