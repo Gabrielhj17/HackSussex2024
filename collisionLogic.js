@@ -28,7 +28,6 @@ function detectCollision() {
     }
 }
 
-
 // Function to end the game
 function endGame() {
     // Display a message or perform any other action to indicate the end of the game
